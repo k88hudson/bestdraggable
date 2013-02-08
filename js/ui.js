@@ -134,9 +134,6 @@ document.addEventListener( "DOMContentLoaded", function() {
     }, false );
   }
 
-  // Textbox with draggable
-  $( test1 ).draggable();
-
   // Textbox with resizable
   $( test2 ).draggable({
     iFrameFix: true,
@@ -220,15 +217,26 @@ document.addEventListener( "DOMContentLoaded", function() {
   selectableDragResize( test9 );
 
   // Tabs
+
+  function activateTab( hash ) {
+    $( "li.active" ).removeClass( "active" );
+    $( ".tab-container.on" ).removeClass( "on" );
+    $( "li[data-tab=\"" + hash + "\"]").addClass( "active" );
+    $( hash ).addClass( "on" );
+    window.location.hash = hash;
+  }
+
   $( ".tabs > li" ).each( function( i, el ) {
-    var $tab = $( "#" + el.getAttribute( "data-tab" ) );
     el.addEventListener(  "click", function( e ) {
-      $( "li.active" ).removeClass( "active" );
-      $( el ).addClass( "active" );
-      $( ".tab-container.on" ).removeClass( "on" );
-      $tab.addClass( "on" );
+      e.preventDefault();
+      activateTab( el.getAttribute( "data-tab" ) );
     }, false );
   });
+
+  // Tabs
+  if ( window.location.hash ) {
+    activateTab( window.location.hash );
+  }
 
   // Store original sizes
   $( "img" ).load( function( e ) {
