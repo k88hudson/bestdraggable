@@ -11,6 +11,7 @@
 
 body {
   background: #FFF;
+  font-family: helvetica;
 }
 
 /*********************************************************
@@ -374,16 +375,18 @@ body {
 .tabs {
   display: inline-block;
   list-style: none;
-  border: 1px solid #DDD;
+  border: 1px solid blue;
   margin: 0;
   padding: 0;
   > li {
-    display: inline-block;
+    cursor: pointer;
+    float: left;
     padding: 0;
     margin: 0;
     padding: 10px;
-    &.active {
-      background: @action;
+    &.active,
+    &:hover {
+      background: blue;
       color: #FFF;
     }
   }

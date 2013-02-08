@@ -1,5 +1,6 @@
 body {
   background: #FFF;
+  font-family: helvetica;
 }
 /*********************************************************
 * TYPES
@@ -377,18 +378,20 @@ body {
 .tabs {
   display: inline-block;
   list-style: none;
-  border: 1px solid #DDD;
+  border: 1px solid blue;
   margin: 0;
   padding: 0;
 }
 .tabs > li {
-  display: inline-block;
+  cursor: pointer;
+  float: left;
   padding: 0;
   margin: 0;
   padding: 10px;
 }
-.tabs > li.active {
-  background: #3fb58e;
+.tabs > li.active,
+.tabs > li:hover {
+  background: blue;
   color: #FFF;
 }
 .tab-container {
