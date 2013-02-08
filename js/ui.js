@@ -11,6 +11,8 @@ document.addEventListener( "DOMContentLoaded", function() {
 
   var xy = document.querySelector( ".ui-dragging-x-y" );
 
+  var altPressed = false;
+
   function disablePE( e, ui ) {
     $( "iframe" ).addClass( "disable-pointer-events" );
   }
@@ -53,7 +55,7 @@ document.addEventListener( "DOMContentLoaded", function() {
     }, false );
   }
 
-  function selectableDragResize( el, withTooltip ) {
+  function selectableDragResize( el, withTooltip, withAlt ) {
     var $el = $( el ),
         wasDraggedResized = false;
 
@@ -83,6 +85,30 @@ document.addEventListener( "DOMContentLoaded", function() {
         stop: function( e, ui ) {
           enablePE();
           document.body.removeChild( xy );
+        }
+      });
+    } else if ( withAlt ) {
+      $el.draggable({
+        helper: "clone",
+        start: function( e, ui ) {
+          wasDraggedResized = true;
+          disablePE();
+        },
+        stop: function( e, ui ) {
+          var $newEl;
+          if ( altPressed ) {
+            $newEl = $el.clone();
+            $el.parent().append( $newEl );
+            selectableDragResize( $newEl[ 0 ], false, true );
+          } else {
+            $newEl = $el;
+          }
+          $newEl.css({
+            position: "absolute",
+            top: ui.position.top + "px",
+            left: ui.position.left + "px"
+          });
+          enablePE();
         }
       });
     } else {
@@ -127,6 +153,7 @@ document.addEventListener( "DOMContentLoaded", function() {
   }, false );
 
   // Google maps
+  /*
   $( test3 ).draggable({
     iFrameFix: true,
     start: disablePE,
@@ -141,6 +168,7 @@ document.addEventListener( "DOMContentLoaded", function() {
     e.stopPropagation();
     disableDraggable( test3 );
   }, false );
+  */
 
   // Google maps with window
   $( test4 ).draggable({
@@ -175,6 +203,7 @@ document.addEventListener( "DOMContentLoaded", function() {
 
    // Google maps with selected state
   selectableDragResize( test5 );
+  selectableDragResize( test3, false, true );
 
   // Text with selected state
   selectableDragResize( test6 );
