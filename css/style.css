@@ -280,6 +280,9 @@ body {
 .ui-draggable-dragging {
   z-index: 1000;
 }
+.alt-pressed .ui-draggable-dragging {
+  cursor: copy;
+}
 .ui-draggable-dragging.ui-resizable .ui-resizable-handle,
 .ui-draggable-dragging.ui-resizable:hover .ui-resizable-handle {
   display: none !important;

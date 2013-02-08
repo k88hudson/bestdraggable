@@ -7,7 +7,8 @@ document.addEventListener( "DOMContentLoaded", function() {
       test6 = document.getElementById( "test6" ),
       test7 = document.getElementById( "test7" );
       test8 = document.getElementById( "test8" ),
-      test4b = document.getElementById( "test4b" );
+      test4b = document.getElementById( "test4b" ),
+      test9 = document.getElementById( "test9" );
 
   var xy = document.querySelector( ".ui-dragging-x-y" );
 
@@ -89,7 +90,9 @@ document.addEventListener( "DOMContentLoaded", function() {
       });
     } else if ( withAlt ) {
       $el.draggable({
-        helper: "clone",
+        helper: function( e, ui ) {
+          return el.cloneNode( false );
+        },
         start: function( e, ui ) {
           wasDraggedResized = true;
           disablePE();
@@ -213,6 +216,7 @@ document.addEventListener( "DOMContentLoaded", function() {
 
   // Twitter
   selectableDragResize( test8, true );
+  selectableDragResize( test9 );
 
   // Tabs
   $( ".tabs > li" ).each( function( i, el ) {
@@ -244,6 +248,21 @@ document.addEventListener( "DOMContentLoaded", function() {
       });
     }
   });
+
+  document.addEventListener( "keydown", function( e ) {
+    if ( e.which === 18 ) {
+      altPressed = true;
+      console.log( "altpressed!" );
+      document.body.classList.add( "alt-pressed" );
+      document.addEventListener( "keyup", function unsetAlt( e ) {
+        if ( e.which === 18 ) {
+          altPressed = false;
+          document.removeEventListener( "keyup", unsetAlt, false );
+          document.body.classList.remove( "alt-pressed" );
+        }
+      }, false );
+    }
+  }, false );
 
 
 }, false );
