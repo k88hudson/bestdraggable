@@ -45,9 +45,7 @@ body {
   }
 }
 
-#test10.editing {
-  box-shadow: 0 0 0px 20px fade( @action, 80% );
-}
+
 
 .text-box {
   font-family: Georgia;
@@ -358,7 +356,8 @@ body {
   }
 }
 
-.slider-container {
+.slider-container,
+.editing-message {
   background: #FFF;
   border: 1px solid @action;
   width: 150px;
@@ -378,6 +377,21 @@ body {
   }
 }
 
+.editing-message {
+  top: auto;
+  bottom: 100%;
+  left: 0;
+  margin-left: -1px;
+  padding: 5px 10px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: bold;
+  border-radius: 3px 3px 0 0;
+  background: @action;
+  color: #FFF;
+  border-color: darken( @action, 10% );
+}
 
 /*********************************************************
 * TABS
