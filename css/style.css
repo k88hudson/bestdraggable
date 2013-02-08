@@ -284,6 +284,71 @@ body {
 .ui-dragging-x-y > span {
   color: #222;
 }
+.ui-slider {
+  position: relative;
+  height: 2px;
+  background: #d1efe5;
+  border: 1px solid #60c7a5;
+}
+.ui-slider:before,
+.ui-slider:after {
+  content: "";
+  opacity: 0.8;
+  display: block;
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  top: 50%;
+  margin-top: -8px;
+  background: url(minus.png) center no-repeat;
+}
+.ui-slider:before {
+  left: -25px;
+  background: url(minus.png) center no-repeat;
+}
+.ui-slider:after {
+  right: -25px;
+  background: url(plus.png) center no-repeat;
+}
+.ui-slider > .ui-slider-handle {
+  position: absolute;
+  height: 11px;
+  width: 11px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid #111;
+  border-radius: 2px;
+  background: #3fb58e;
+  top: 50%;
+  margin-top: -6px;
+  margin-left: -6px;
+  z-index: 1;
+  box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.2);
+}
+.ui-slider > .ui-slider-handle:focus {
+  outline: none;
+}
+.slider-container {
+  background: #FFF;
+  border: 1px solid #3fb58e;
+  width: 150px;
+  padding: 15px 30px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -100px;
+  margin-top: 20px;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.2);
+}
+.editing .slider-container {
+  -webkit-transition: all 0.2s ease-out;
+  opacity: 1;
+  visibility: visible;
+}
 /*********************************************************
 * TABS
 */

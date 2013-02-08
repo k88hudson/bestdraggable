@@ -185,5 +185,25 @@ document.addEventListener( "DOMContentLoaded", function() {
     }, false );
   });
 
+  // Store original sizes
+  $( "img" ).load( function( e ) {
+    this.setAttribute( "height", this.height );
+    this.setAttribute( "width", this.width );
+  });
+
+  // Sliders
+  $( ".image-size" ).slider({
+    value: 50,
+    slide: function( e, ui ) {
+      $( e.target ).parent().parent().find( "img" ).each( function( i, el ) {
+        el = $( el );
+        el.css({
+          height: el.attr( "height" ) * ( ui.value + 50 ) / 100 + "px",
+          width: el.attr( "width" ) * ( ui.value + 50 ) / 100 + "px"
+        });
+      });
+    }
+  });
+
 
 }, false );
