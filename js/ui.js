@@ -8,7 +8,8 @@ document.addEventListener( "DOMContentLoaded", function() {
       test7 = document.getElementById( "test7" );
       test8 = document.getElementById( "test8" ),
       test4b = document.getElementById( "test4b" ),
-      test9 = document.getElementById( "test9" );
+      test9 = document.getElementById( "test9" ),
+      test10 = document.getElementById( "test10" );
 
   var xy = document.querySelector( ".ui-dragging-x-y" );
 
@@ -155,9 +156,8 @@ document.addEventListener( "DOMContentLoaded", function() {
     disableDraggable( test2 );
   }, false );
 
-  // Google maps
-  /*
-  $( test3 ).draggable({
+  // Google maps - Double click
+  $( test1 ).draggable({
     iFrameFix: true,
     start: disablePE,
     stop: enablePE
@@ -167,11 +167,11 @@ document.addEventListener( "DOMContentLoaded", function() {
     start: disablePE,
     stop: enablePE
   });
-  test3.addEventListener( "dblclick", function( e ) {
+  test1.addEventListener( "dblclick", function( e ) {
     e.stopPropagation();
-    disableDraggable( test3 );
+    disableDraggable( test1 );
   }, false );
-  */
+
 
   // Google maps with window
   $( test4 ).draggable({
@@ -207,6 +207,7 @@ document.addEventListener( "DOMContentLoaded", function() {
    // Google maps with selected state
   selectableDragResize( test5 );
   selectableDragResize( test3, false, true );
+  selectableDragResize( test10 );
 
   // Text with selected state
   selectableDragResize( test6 );

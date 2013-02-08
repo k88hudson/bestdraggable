@@ -17,10 +17,16 @@ body {
 }
 .test.editing {
   -webkit-transition: box-shadow 0.1s ease-out;
+  -moz-transition: box-shadow 0.1s ease-out;
+  -o-transition: box-shadow 0.1s ease-out;
+  transition: box-shadow 0.1s ease-out;
   box-shadow: 0 0 10px -1px #3fb58e;
 }
 .test.editing:hover .ui-resizable-handle {
   display: none !important;
+}
+#test10.editing {
+  box-shadow: 0 0 0px 20px rgba(63, 181, 142, 0.8);
 }
 .text-box {
   font-family: Georgia;
@@ -369,6 +375,9 @@ body {
 }
 .editing .slider-container {
   -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
   opacity: 1;
   visibility: visible;
 }

@@ -8,6 +8,13 @@
   box-sizing: @property;
 }
 
+.transition( @properties ) {
+  -webkit-transition: @properties;
+  -moz-transition: @properties;
+  -o-transition: @properties;
+  transition: @properties;
+}
+
 
 body {
   background: #FFF;
@@ -30,12 +37,16 @@ body {
     border-color: @action;
   }
   &.editing {
-    -webkit-transition: box-shadow 0.1s ease-out;
+    .transition( box-shadow 0.1s ease-out );
     box-shadow: 0 0 10px -1px @action;
     &:hover .ui-resizable-handle {
       display: none !important;
     }
   }
+}
+
+#test10.editing {
+  box-shadow: 0 0 0px 20px fade( @action, 80% );
 }
 
 .text-box {
@@ -361,7 +372,7 @@ body {
   visibility: hidden;
   box-shadow: 0 2px 6px -2px fade( black, 20% );
   .editing & {
-    -webkit-transition: all 0.2s ease-out;
+    .transition( all 0.2s ease-out );
     opacity: 1;
     visibility: visible;
   }
