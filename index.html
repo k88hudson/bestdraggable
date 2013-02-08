@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Draggable Tests</title>
+  <link rel="stylesheet" href="//www.mozilla.org/tabzilla/media/css/tabzilla.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <ul class="tabs">
+    <li data-tab="handles-container">Handles</li>
+    <li data-tab="selectable-container" class="active">Selectable</li>
+    <li data-tab="other-container">Other</li>
+  </ul>
+
+  <div id="handles-container" class="tab-container">
+    <h3>Handles</h3>
+    <div id="test4" class="test gmaps window">
+      <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.ca/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=366+adelaide+west&amp;aq=&amp;sll=43.656877,-79.32085&amp;sspn=0.779935,1.561432&amp;ie=UTF8&amp;hq=&amp;hnear=Adelaide+West+Physiotherapy,+366+Adelaide+St+W,+Toronto,+Toronto+Division,+Ontario+M5V+1R9&amp;t=m&amp;z=14&amp;ll=43.647097,-79.394288&amp;output=embed"></iframe>
+      <div class="window-handle"></div>
+    </div>
+
+    <div id="test4b" class="test gmaps">
+      <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.ca/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=366+adelaide+west&amp;aq=&amp;sll=43.656877,-79.32085&amp;sspn=0.779935,1.561432&amp;ie=UTF8&amp;hq=&amp;hnear=Adelaide+West+Physiotherapy,+366+Adelaide+St+W,+Toronto,+Toronto+Division,+Ontario+M5V+1R9&amp;t=m&amp;z=14&amp;ll=43.647097,-79.394288&amp;output=embed"></iframe>
+      <div class="handle"></div>
+    </div>
+
+    <div id="test2" class="test text-box"><span contenteditable>This is some text 2 </span></div>
+
+  </div>
+
+  <div id="selectable-container" class="tab-container on">
+    <h3>Selectable</h3>
+    <br>
+    <div id="test5" class="test gmaps click-to-edit">
+      <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.ca/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=366+adelaide+west&amp;aq=&amp;sll=43.656877,-79.32085&amp;sspn=0.779935,1.561432&amp;ie=UTF8&amp;hq=&amp;hnear=Adelaide+West+Physiotherapy,+366+Adelaide+St+W,+Toronto,+Toronto+Division,+Ontario+M5V+1R9&amp;t=m&amp;z=14&amp;ll=43.647097,-79.394288&amp;output=embed"></iframe>
+    </div>
+
+    <div id="test7" class="test image click-to-edit">
+      <div class="image-container cropped-image-container">
+        <img src="http://dl.dropbox.com/u/29163874/Screenshots/ev.png">
+      </div>
+      <div class="image-container clone-container">
+        <img class="crop-clone" src="http://dl.dropbox.com/u/29163874/Screenshots/ev.png">
+      </div>
+    </div>
+
+    <div id="test6" class="test text-box">
+      <span contenteditable>Hello world one two three</span>
+    </div>
+
+    <div id="test8" class="test tweet click-to-edit">
+      <blockquote class="twitter-tweet"><p>Kathleen Wynne and her cabinet will be sworn in at 3 p.m. Monday in the legislative chamber at Queen's Park. <a href="https://twitter.com/search/%23onpoli">#onpoli</a></p>&mdash; Adrian Morrow (@AdrianMorrow) <a href="https://twitter.com/AdrianMorrow/status/299622887348895744">February 7, 2013</a></blockquote>
+      <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+
+  </div>
+
+  <div id="other-container" class="tab-container">
+
+
+    <div id="test1" class="test text-box"><span>This is some text1 </span></div>
+
+    <div id="test3" class="test gmaps click-to-edit">
+      <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.ca/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=366+adelaide+west&amp;aq=&amp;sll=43.656877,-79.32085&amp;sspn=0.779935,1.561432&amp;ie=UTF8&amp;hq=&amp;hnear=Adelaide+West+Physiotherapy,+366+Adelaide+St+W,+Toronto,+Toronto+Division,+Ontario+M5V+1R9&amp;t=m&amp;z=14&amp;ll=43.647097,-79.394288&amp;output=embed"></iframe>
+    </div>
+
+  </div>
+
+  <div class="ui-dragging-x-y">x: <span class="ui-x-pos">0</span><br>y: <span class="ui-y-pos">0</span></div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
+  <script src="js/ui.js"></script>
+</body>
+</html>

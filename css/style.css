@@ -1,0 +1,311 @@
+body {
+  background: #FFF;
+}
+/*********************************************************
+* TYPES
+*/
+.test {
+  position: absolute;
+  display: inline-block;
+  border: 1px solid #dddddd;
+}
+.test:hover,
+.test.editing,
+.ui-resizable-resizing .test {
+  border-color: #3fb58e;
+}
+.test.editing {
+  -webkit-transition: box-shadow 0.1s ease-out;
+  box-shadow: 0 0 10px -1px #3fb58e;
+}
+.test.editing:hover .ui-resizable-handle {
+  display: none !important;
+}
+.text-box {
+  font-family: Georgia;
+  padding: 1em;
+}
+.text-box > span {
+  cursor: default;
+}
+.text-box.editing > span {
+  cursor: text;
+}
+.text-box.editing > span:focus {
+  outline: none;
+  background: rgba(63, 181, 142, 0.2);
+}
+.gmaps {
+  position: relative;
+  border: 1px solid #dddddd;
+  height: 300px;
+  width: 300px;
+}
+.gmaps > iframe {
+  width: 100%;
+  height: 100%;
+}
+.image {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+.image.editing .clone-container {
+  overflow: visible;
+  pointer-events: auto;
+}
+.image .clone-container {
+  overflow: hidden;
+  opacity: 0.3;
+  pointer-events: none;
+}
+.image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.image-container img {
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+.tweet iframe {
+  pointer-events: none;
+}
+.tweet.editing iframe {
+  pointer-events: auto;
+}
+.click-to-edit > iframe {
+  pointer-events: none;
+}
+.click-to-edit.editing > iframe {
+  pointer-events: auto;
+}
+.click-to-edit:after {
+  content: "";
+  position: absolute;
+  height: 64px;
+  width: 64px;
+  left: 50%;
+  top: 50%;
+  margin-left: -32px;
+  margin-top: -32px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 14px solid #3fb58e;
+  border-radius: 30px;
+  opacity: 0;
+}
+.click-to-edit:hover:after {
+  opacity: 0.3;
+}
+.click-to-edit.ui-resizable-resizing:after,
+.click-to-edit.editing:after,
+.click-to-edit.editing:hover:after {
+  display: none;
+}
+.disable-pointer-events {
+  pointer-events: none;
+}
+.window-handle {
+  position: absolute;
+  bottom: 100%;
+  left: -1px;
+  right: -1px;
+  height: 15px;
+  border: 1px solid #AAA;
+  border-radius: 3px 3px 0 0;
+  background: #DDD;
+  cursor: move;
+}
+.handle {
+  position: absolute;
+  height: 26px;
+  width: 26px;
+  top: -13px;
+  left: -13px;
+  border-radius: 4px;
+  background: #3fb58e;
+  z-index: 100;
+  cursor: move;
+}
+.handle:after {
+  position: absolute;
+  content: "";
+  display: block;
+  height: 14px;
+  width: 14px;
+  top: 5px;
+  left: 5px;
+  background: url("https://popcorn.webmaker.org/resources/icons/glyphiconshalflings-white.png") -168px -72px;
+  z-index: 1000;
+}
+/*********************************************************
+* JQUERY UI
+*/
+.ui-resizable {
+  position: relative;
+}
+.ui-resizable-handle {
+  position: absolute;
+  border: 1px solid black;
+  background: #FFF;
+}
+.ui-resizable-disabled .ui-resizable-handle,
+.ui-resizable-autohide .ui-resizable-handle {
+  display: none;
+}
+.ui-resizable-n {
+  cursor: n-resize;
+  height: 5px;
+  width: 100%;
+  top: -3px;
+  left: 0;
+}
+.ui-resizable-s {
+  cursor: s-resize;
+  height: 5px;
+  width: 100%;
+  bottom: -3px;
+  left: 0;
+}
+.ui-resizable-e {
+  cursor: e-resize;
+  width: 5px;
+  right: -3px;
+  top: 0;
+  height: 100%;
+}
+.ui-resizable-w {
+  cursor: w-resize;
+  width: 5px;
+  left: -3px;
+  top: 0;
+  height: 100%;
+}
+.ui-resizable-se {
+  cursor: se-resize;
+  width: 5px;
+  height: 5px;
+  right: -3px;
+  bottom: -3px;
+}
+.ui-resizable-sw {
+  cursor: sw-resize;
+  width: 5px;
+  height: 5px;
+  left: -3px;
+  bottom: -3px;
+}
+.ui-resizable-nw {
+  cursor: nw-resize;
+  width: 5px;
+  height: 5px;
+  left: -3px;
+  top: -3px;
+}
+.ui-resizable-ne {
+  cursor: ne-resize;
+  width: 5px;
+  height: 5px;
+  right: -3px;
+  top: -3px;
+}
+.ui-resizable-n,
+.ui-resizable-s,
+.ui-resizable-e,
+.ui-resizable-w {
+  border: none;
+  background: none;
+}
+.ui-resizable-n:after,
+.ui-resizable-s:after,
+.ui-resizable-e:after,
+.ui-resizable-w:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border: 1px solid black;
+  background: #FFF;
+}
+.ui-resizable-n:after,
+.ui-resizable-s:after {
+  left: 50%;
+  margin-left: -3px;
+  top: -1px;
+}
+.ui-resizable-e:after,
+.ui-resizable-w:after {
+  top: 50%;
+  margin-top: -3px;
+  left: -1px;
+}
+.ui-resizable-handle {
+  display: none !important;
+}
+.ui-resizable:hover .ui-resizable-handle,
+.ui-resizable-resizing .ui-resizable-handle {
+  display: block !important;
+}
+.ui-draggable:hover {
+  z-index: 100;
+}
+.ui-resizable-resizing,
+.ui-draggable-dragging {
+  z-index: 1000;
+}
+.ui-draggable-dragging.ui-resizable .ui-resizable-handle,
+.ui-draggable-dragging.ui-resizable:hover .ui-resizable-handle {
+  display: none !important;
+}
+.ui-dragging-x-y {
+  width: 65px;
+  font-family: menlo, mono;
+  font-size: 12px;
+  border: 1px solid #3fb58e;
+  background: #FFF;
+  padding: 8px;
+  display: inline-block;
+  position: absolute;
+  left: 100%;
+  margin-left: 3px;
+  margin-top: 3px;
+  top: 0;
+  color: #3fb58e;
+  z-index: 100;
+}
+.ui-dragging-x-y > span {
+  color: #222;
+}
+/*********************************************************
+* TABS
+*/
+.tabs {
+  display: inline-block;
+  list-style: none;
+  border: 1px solid #DDD;
+  margin: 0;
+  padding: 0;
+}
+.tabs > li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  padding: 10px;
+}
+.tabs > li.active {
+  background: #DDD;
+}
+.tab-container {
+  display: none;
+}
+.tab-container.on {
+  display: block;
+}

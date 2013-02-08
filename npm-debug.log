@@ -1,0 +1,47 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'jquery-ui', '--save' ]
+2 info using npm@1.1.59
+3 info using node@v0.8.8
+4 verbose read json /Users/katehudson/github/bestdraggable/package.json
+5 warn package.json bestdraggable@0.1.0 No README.md file found!
+6 verbose read json /Users/katehudson/github/bestdraggable/node_modules/express/package.json
+7 verbose read json /Users/katehudson/github/bestdraggable/node_modules/less/package.json
+8 verbose read json /Users/katehudson/github/bestdraggable/node_modules/less-middleware/package.json
+9 verbose from cache /Users/katehudson/github/bestdraggable/package.json
+10 verbose readDependencies using package.json deps
+11 verbose cache add [ 'jquery-ui', null ]
+12 silly cache add name=undefined spec="jquery-ui" args=["jquery-ui",null]
+13 verbose parsed url { pathname: 'jquery-ui', path: 'jquery-ui', href: 'jquery-ui' }
+14 silly lockFile 54d470e0-jquery-ui jquery-ui
+15 verbose lock jquery-ui /Users/katehudson/.npm/54d470e0-jquery-ui.lock
+16 silly lockFile 54d470e0-jquery-ui jquery-ui
+17 verbose addNamed [ 'jquery-ui', '' ]
+18 verbose addNamed [ null, '' ]
+19 silly lockFile b7077c0a-jquery-ui jquery-ui@
+20 verbose lock jquery-ui@ /Users/katehudson/.npm/b7077c0a-jquery-ui.lock
+21 silly addNameRange { name: 'jquery-ui', range: '', hasData: false }
+22 verbose url raw jquery-ui
+23 verbose url resolving [ 'https://registry.npmjs.org/', './jquery-ui' ]
+24 verbose url resolved https://registry.npmjs.org/jquery-ui
+25 info retry registry request attempt 1 at 12:09:41
+26 http GET https://registry.npmjs.org/jquery-ui
+27 http 404 https://registry.npmjs.org/jquery-ui
+28 silly registry.get cb [ 404,
+28 silly registry.get   { server: 'CouchDB/1.2.1 (Erlang OTP/R15B)',
+28 silly registry.get     date: 'Thu, 07 Feb 2013 17:07:51 GMT',
+28 silly registry.get     'content-type': 'application/json',
+28 silly registry.get     'content-length': '52',
+28 silly registry.get     'cache-control': 'must-revalidate' } ]
+29 silly lockFile b7077c0a-jquery-ui jquery-ui@
+30 error 404 'jquery-ui' is not in the npm registry.
+30 error 404 You should bug the author to publish it
+30 error 404
+30 error 404 Note that you can also install from a
+30 error 404 tarball, folder, or http url, or git url.
+31 error System Darwin 12.2.0
+32 error command "node" "/usr/local/bin/npm" "install" "jquery-ui" "--save"
+33 error cwd /Users/katehudson/github/bestdraggable
+34 error node -v v0.8.8
+35 error npm -v 1.1.59
+36 error code E404
+37 verbose exit [ 1, true ]
