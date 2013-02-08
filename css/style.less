@@ -39,17 +39,29 @@ body {
 
 .text-box {
   font-family: Georgia;
-  padding: 1em;
-  > span {
+  width: 200px;
+  height: 100px;
+  span {
     cursor: default;
   }
-  &.editing > span {
+  &.editing span {
     cursor: text;
     &:focus {
       outline: none;
       background: fade( @action, 20% );
     }
   }
+}
+
+.inner-text {
+  position: absolute;
+  .box-sizing( border-box );
+  padding: 0.5em;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .gmaps {
@@ -176,6 +188,11 @@ body {
     left: 5px;
     background: url("https://popcorn.webmaker.org/resources/icons/glyphiconshalflings-white.png") -168px -72px;
     z-index: 1000;
+  }
+  display: none;
+  .test:hover &,
+  .ui-draggable-dragging & {
+    display: block;
   }
 }
 
@@ -362,7 +379,8 @@ body {
     margin: 0;
     padding: 10px;
     &.active {
-      background: #DDD;
+      background: @action;
+      color: #FFF;
     }
   }
 }

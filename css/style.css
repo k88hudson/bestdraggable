@@ -23,17 +23,31 @@ body {
 }
 .text-box {
   font-family: Georgia;
-  padding: 1em;
+  width: 200px;
+  height: 100px;
 }
-.text-box > span {
+.text-box span {
   cursor: default;
 }
-.text-box.editing > span {
+.text-box.editing span {
   cursor: text;
 }
-.text-box.editing > span:focus {
+.text-box.editing span:focus {
   outline: none;
   background: rgba(63, 181, 142, 0.2);
+}
+.inner-text {
+  position: absolute;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0.5em;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 .gmaps {
   position: relative;
@@ -133,6 +147,7 @@ body {
   background: #3fb58e;
   z-index: 100;
   cursor: move;
+  display: none;
 }
 .handle:after {
   position: absolute;
@@ -144,6 +159,10 @@ body {
   left: 5px;
   background: url("https://popcorn.webmaker.org/resources/icons/glyphiconshalflings-white.png") -168px -72px;
   z-index: 1000;
+}
+.test:hover .handle,
+.ui-draggable-dragging .handle {
+  display: block;
 }
 /*********************************************************
 * JQUERY UI
@@ -366,7 +385,8 @@ body {
   padding: 10px;
 }
 .tabs > li.active {
-  background: #DDD;
+  background: #3fb58e;
+  color: #FFF;
 }
 .tab-container {
   display: none;

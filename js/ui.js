@@ -53,7 +53,7 @@ document.addEventListener( "DOMContentLoaded", function() {
     }, false );
   }
 
-  function selectableDragResize( el, editableFn, editableTeardown ) {
+  function selectableDragResize( el, withTooltip ) {
     var $el = $( el ),
         wasDraggedResized = false;
 
@@ -67,23 +67,33 @@ document.addEventListener( "DOMContentLoaded", function() {
       stop: enablePE
     });
 
-    $el.draggable({
-      start: function( e, ui ) {
-        wasDraggedResized = true;
-        disablePE();
-        document.body.appendChild( xy );
-      },
-      drag: function( e, ui ) {
-        xy.style.left = e.pageX - $(window).scrollLeft() + "px";
-        xy.style.top = e.pageY - $(window).scrollTop() + "px";
-        $( ".ui-x-pos", xy ).text( ui.offset.left + "px" );
-        $( ".ui-y-pos", xy ).text( ui.offset.top + "px" );
-      },
-      stop: function( e, ui ) {
-        enablePE();
-        document.body.removeChild( xy );
-      }
-    });
+    if ( withTooltip ) {
+      $el.draggable({
+        start: function( e, ui ) {
+          wasDraggedResized = true;
+          disablePE();
+          document.body.appendChild( xy );
+        },
+        drag: function( e, ui ) {
+          xy.style.left = e.pageX - $(window).scrollLeft() + "px";
+          xy.style.top = e.pageY - $(window).scrollTop() + "px";
+          $( ".ui-x-pos", xy ).text( ui.offset.left + "px" );
+          $( ".ui-y-pos", xy ).text( ui.offset.top + "px" );
+        },
+        stop: function( e, ui ) {
+          enablePE();
+          document.body.removeChild( xy );
+        }
+      });
+    } else {
+      $el.draggable({
+        start: function( e, ui ) {
+          wasDraggedResized = true;
+          disablePE();
+        },
+        stop: enablePE
+      });
+    }
 
     el.addEventListener( "mouseup", function( e ) {
       if ( wasDraggedResized ) {
@@ -101,7 +111,8 @@ document.addEventListener( "DOMContentLoaded", function() {
   $( test2 ).draggable({
     iFrameFix: true,
     start: disablePE,
-    stop: enablePE
+    stop: enablePE,
+    handle: ".handle"
   })
   .resizable({
     iFrameFix: true,
@@ -172,7 +183,7 @@ document.addEventListener( "DOMContentLoaded", function() {
   selectableDragResize( test7 );
 
   // Twitter
-  selectableDragResize( test8 );
+  selectableDragResize( test8, true );
 
   // Tabs
   $( ".tabs > li" ).each( function( i, el ) {
